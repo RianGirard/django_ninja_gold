@@ -1,0 +1,30 @@
+*{
+    /* outline: 1px black solid; */
+}
+h1 {
+    margin: 100px 0px 50px 5px
+}
+.form-control, .btn{
+    margin-top: 10px;
+}
+#display {
+    font-size: 18pt;
+    /* font-weight: bold; */
+    text-decoration: underline;
+}
+.display2 {
+    outline: 2px black solid;
+    text-align: center;
+    margin: 50px;
+    padding: 50px 0px;
+}
+.btn {
+    margin-left: 50px;
+}
+#textarea {							/* a little help from here: https://www.cssportal.com/form-elements/text-area.php */
+	border: 2px solid #765942;
+	border-radius: 10px;
+	height: 200px;
+	width: 700px;
+    margin-left: 420px;
+}

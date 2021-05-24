@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Ninja Gold!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/ninjastyle.css' %}"> 
+</head>
+<body>
+    <h1>Welcome to Ninja Gold!</h1>
+    <div class="container"  id="display">
+        <div class="row">
+            <div class="col-sm">
+                Target Gold:
+            </div>
+            <div class="col-sm">
+                {{request.session.gold_target}}
+            </div>
+            <div class="col-sm">
+                Target Number Turns:
+            </div>
+            <div class="col-sm">
+                {{request.session.turn_target}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                Your Gold:
+            </div>
+            <div class="col-sm-3">
+                {{request.session.gold_amount}}
+            </div>
+            <div class="col-sm-3">
+                Turn Count:
+            </div>
+            <div class="col-sm-3">
+                {{request.session.turns_amount}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col display2">
+            <h2>Farm</h2>
+            <p>(earn 10-20 gold pieces)</p>
+            <a href="process_farm"><button type="button" class="btn btn-outline-success">Find Gold!</button></a>
+        </div>
+        <div class="col display2">
+            <h2>Cave</h2>
+            <p>(earn 5-10 gold pieces)</p>
+            <a href="process_cave"><button type="button" class="btn btn-outline-success">Find Gold!</button></a>
+        </div>
+        <div class="col display2">
+            <h2>House</h2>
+            <p>(earn 2-5 gold pieces)</p>
+            <a href="process_house"><button type="button" class="btn btn-outline-success">Find Gold!</button></a>
+        </div>
+        <div class="col display2">
+            <h2>Casino</h2>
+            <p>(earn or lose 0-50 gold pieces)</p>
+            <a href="process_casino"><button type="button" class="btn btn-outline-warning">Risk Gold!</button></a>
+        </div>
+    </div>
+    <textarea name="textarea" id="textarea">
+        {% for activity in request.session.activity_log reversed %}
+        {{activity}}
+        {% endfor %}
+    </textarea>
+    <a href="reset"><button type="button" class="btn btn-outline-primary">Reset Game</button></a>
+</body>
+</html>

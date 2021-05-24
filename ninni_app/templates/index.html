@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/ninjastyle.css' %}"> 
+</head>
+<body>
+    <h1>Welcome to Ninja Gold!</h1>
+    <form action="init" method="POST">
+        {% csrf_token %} 
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <input class="form-control form-control-lg" type="number" name="target_gold" placeholder="Enter desired GOLD:" required>
+            </div>
+            <div class="form-group col-md-2">
+                <input class="form-control form-control-lg" type="number" name="target_turns" placeholder="Enter number of turns:" required>
+            </div>
+            <div class="form-group col-md-1">
+                <input class="btn btn-primary" type="submit" value="Submit">
+            </div>
+            <div class="form-group col-md-6">
+                <p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
